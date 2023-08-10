@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task7</title>
+  </head>
+  <body>
+    <select name="country" id="country">
+      <option value="ger">Germany</option>
+      <option value="usa">USA</option>
+      <option value="ukr">Ukraine</option>
+    </select>
+
+    <select name="cities" id="cities"></select>
+
+    <p id="selected"></p>
+
+    <script>
+      // На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн,
+      // у другому – назви міст. Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого
+      // списку певна країна - в правому випадаючому  списку з'являлися міста цієї країни. Список міст
+      // формується динамічно, через JavaScript. Також потрібно нижче вивести назву обраної країни і місто.
+      // Код HTML-сторінки:
+      // <select name="country" id="country">
+      //         <option value="ger">Germany</option>
+      //         <option value="usa">USA</option>
+      //         <option value="ukr">Ukraine</option>
+      // </select>
+
+      // <select name="cities" id="cities"></select>
+      // <p></p>
+
+      // https://user-images.githubusercontent.com/9075641/228463508-6225f4ee-7ad2-4130-b7fc-d97a2d236693.png
+
+      //===============================================================================================
+
+      // Получаем элементы списков и параграфа
+      let countryList = document.querySelector("#country");
+      let cityList = document.querySelector("#cities");
+      let selected = document.querySelector("#selected");
+
+      // Определяем массив объектов с данными о городах
+      let citiesData = [
+        { country: "ger", city: "Berlin" },
+        { country: "ger", city: "Munich" },
+        { country: "usa", city: "New York" },
+        { country: "usa", city: "Los Angeles" },
+        { country: "ukr", city: "Kyiv" },
+        { country: "ukr", city: "Lviv" },
+      ];
+
+      // Функция для заполнения списка городов
+      function populateCityList() {
+        // Очищаем список городов
+        cityList.innerHTML = "";
+
+        // Получаем выбранную страну
+        let selectedCountry = countryList.value;
+
+        // Фильтруем массив городов по выбранной стране
+        let filteredCities = citiesData.filter(
+          (city) => city.country === selectedCountry
+        );
+
+        // Создаем элементы option для каждого города в отфильтрованном массиве
+        filteredCities.forEach((city) => {
+          let option = document.createElement("option");
+          option.value = city.city;
+          option.innerText = city.city;
+          cityList.appendChild(option);
+        });
+      }
+
+      // Функция для обновления названий выбранной страны и города
+      function updateSelected() {
+        let selectedCountryName =
+          countryList.options[countryList.selectedIndex].text;
+        let selectedCityName = cityList.options[cityList.selectedIndex].text;
+        selected.innerText = `Selected country: ${selectedCountryName}, Selected city: ${selectedCityName}`;
+      }
+
+      // Добавляем обработчик события "change" на список стран
+      countryList.addEventListener("change", () => {
+        populateCityList();
+        updateSelected();
+      });
+
+      // Добавляем обработчик события "change" на список городов
+      cityList.addEventListener("change", () => {
+        updateSelected();
+      });
+
+      // Заполняем список городов при загрузке страницы
+      populateCityList();
+
+      // Обновляем названия выбранной страны и города при загрузке страницы
+      updateSelected();
+    </script>
+  </body>
+</html>

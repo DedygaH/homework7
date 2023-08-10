@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task1</title>
+  </head>
+  <body>
+    <button onclick="createWindow()">Create Window</button>
+
+    <script>
+      // За допомогою методів об’єкта window створити:
+      //         1) нове вікно розміром 300х300 пікселів.
+      //         2) із затримкою 2 сек змініть розміри вікна на 500х500 пікселів
+      //         3) із затримкою 2 сек перемістіть вікно в точку з координатами (200, 200)
+      //         4) із затримкою 2 сек закрийте вікно.
+
+      //=======================================
+
+      // Функція для створення нового вікна
+      function createWindow() {
+        // Створюємо нове вікно розміром 300x300 пікселів
+        let newWindow = window.open("", "", "width=300,height=300");
+
+        // Змінюємо розміри вікна на 500x500 пікселів із затримкою в 2 секунди
+        setTimeout(function () {
+          newWindow.resizeTo(500, 500);
+        }, 2000);
+
+        // Переміщуємо вікно в точку з координатами (200, 200) із затримкою в 4 секунди (2 секунди після зміни розмірів)
+        setTimeout(function () {
+          newWindow.moveTo(200, 200);
+        }, 4000);
+
+        // Закриваємо вікно із затримкою в 6 секунд (2 секунди після переміщення)
+        setTimeout(function () {
+          newWindow.close();
+        }, 6000);
+      }
+    </script>
+  </body>
+</html>

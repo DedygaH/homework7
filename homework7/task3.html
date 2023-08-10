@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task3</title>
+    <style>
+      button,
+      a {
+        display: block;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      #button1 {
+        background-color: green;
+      }
+
+      #button2 {
+        background-color: red;
+      }
+
+      #button3 {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button1">Button 1</button>
+    <button id="button2">Button 2</button>
+    <button id="button3">Button 3</button>
+    <a href="#">Link</a>
+
+    <script>
+      // Задано сторінку з 3 кнопками і 1 лінкою. Напишіть Javascript код і реалізуйте HTML-сторінку
+      // з відповідними подіями на кожному елементові:
+      //         1) 1-ша кнопка – при кліку на неї колір фону сторінки міняється на синій
+      //         2) 2-га кнопка – при подвійному кліку на неї колір фону сторінки міняється на рожевий
+      //         3) 3-я кнопка – при натисненні і утримуванні кнопки колір фону сторінки стає коричневий. При відпусканні – білий.
+      //         4) При наведенні на лінку – колір фону стає жовтим, при відведенні – білим.
+      //         Приклад – курсор наведений на лінку.
+      // https://user-images.githubusercontent.com/9075641/228461056-455d4dbf-527b-43de-a3dd-7c079dfbffed.png
+
+      //================================================================================
+
+      // отримуємо елементи кнопок та посилання
+      let button1 = document.querySelector("#button1");
+      let button2 = document.querySelector("#button2");
+      let button3 = document.querySelector("#button3");
+      let link = document.querySelector("a");
+
+      // функція зміни кольору фону сторінки на синій
+      function changeBackgroundToBlue() {
+        document.body.style.backgroundColor = "blue";
+      }
+
+      // функція зміни кольору фону сторінки на рожевий
+      function changeBackgroundToPink() {
+        document.body.style.backgroundColor = "pink";
+      }
+
+      // функція зміни кольору фону сторінки на коричневий
+      function changeBackgroundToBrown() {
+        document.body.style.backgroundColor = "brown";
+      }
+
+      // функція зміни кольору фону сторінки на білий
+      function changeBackgroundToWhite() {
+        document.body.style.backgroundColor = "white";
+      }
+
+      // призначаємо обробники подій на кнопки та посилання
+      button1.addEventListener("click", changeBackgroundToBlue);
+      button2.addEventListener("dblclick", changeBackgroundToPink);
+      button3.addEventListener("mousedown", changeBackgroundToBrown);
+      button3.addEventListener("mouseup", changeBackgroundToWhite);
+      link.addEventListener("mouseover", () => {
+        document.body.style.backgroundColor = "yellow";
+      });
+      link.addEventListener("mouseout", changeBackgroundToWhite);
+    </script>
+  </body>
+</html>

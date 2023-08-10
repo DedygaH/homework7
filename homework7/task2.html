@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task2</title>
+  </head>
+  <body>
+    <p id="text">I learning JavaScript events!</p>
+    <div>
+      <button onclick="changeCSS()">Change style!</button>
+    </div>
+
+    <script>
+      // напишіть функцію changeCSS(), яка спрацьовуватиме по кліку на кнопку і
+      // змінюватиме стиль вмісту тега <p>: колір шрифту – оранжевий, розмір шрифту 20px,
+      //  шрифт сімейства "Comic Sans MS".
+      //============================
+
+      function changeCSS() {
+        // змінюемо колір шрифту на оранжевий
+        document.querySelector("#text").style.color = "orange";
+
+        // розмір шрифту на 20px
+        document.querySelector("#text").style.fontSize = "20px";
+
+        // шрифт на "Comic Sans MS"
+        document.querySelector("#text").style.fontFamily = "Comic Sans MS";
+      }
+    </script>
+  </body>
+</html>

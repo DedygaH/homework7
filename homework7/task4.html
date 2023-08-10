@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task4</title>
+  </head>
+  <body>
+    <select id="mySelect">
+      <option value="">Select an option:</option>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+      <option value="option4">Option 4</option>
+      <option value="option5">Option 5</option>
+    </select>
+
+    <button id="deleteButton">Delete Selected Item</button>
+
+    <script>
+      // Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент
+      // випадаючого списку. Можуть видалятися всі елементи в будь-якому порядку.
+      // https://user-images.githubusercontent.com/9075641/228462160-e0584c12-eb4a-4973-b598-46e1cde9b941.png
+
+      //=====================================================
+
+      // отримуємо елементи списку та кнопки
+      let select = document.querySelector("#mySelect");
+      let deleteButton = document.querySelector("#deleteButton");
+
+      // обробник події для кнопки
+      deleteButton.addEventListener("click", function () {
+        // отримуємо вибраний елемент списку
+        let selectedItem = select.options[select.selectedIndex];
+
+        // якщо вибрано елемент, видаляємо його
+        if (selectedItem) {
+          selectedItem.remove();
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task6</title>
+  </head>
+  <body>
+    <p>Window width: <span id="width"></span></p>
+    <p>Window height: <span id="height"></span></p>
+
+    <script>
+      // Реалізуйте програму, яка відслідковуватиме зміну розміру (ширини і висоти) вікна браузера і
+      // виводитиме на поточну сторінку при її розтязі/стисканні відповідні значення.
+      // https://user-images.githubusercontent.com/9075641/228463011-5302f615-86e6-41dc-b09a-62bed3564596.png
+
+      //=================================================================
+
+      // елементи для виведення значень
+      let widthOutput = document.querySelector("#width");
+      let heightOutput = document.querySelector("#height");
+
+      // функція оновлення значень при зміні розміру вікна
+      function updateSize() {
+        // Отримуємо ширину та висоту вікна
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        // виводимо значення відповідні елементи
+        widthOutput.textContent = width;
+        heightOutput.textContent = height;
+      }
+
+      // викликаємо функцію під час завантаження сторінки
+      updateSize();
+
+      // додаємо обробник події "resize" на вікно
+      window.addEventListener("resize", updateSize);
+    </script>
+  </body>
+</html>

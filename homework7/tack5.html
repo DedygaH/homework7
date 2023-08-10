@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task5</title>
+  </head>
+  <body>
+    <button id="myButton">Press me</button>
+
+    <script>
+      // Реалізуйте програму, яка по натисканню на кнопку виводитиме повідомлення
+      // "I was pressed!", при наведенні на кнопку виводитиме повідомлення "Mouse on me!",
+      // а при відведенні курсора миші виводитиме повідомлення "Mouse is not on me!".
+      // Приклад роботи:
+      // https://user-images.githubusercontent.com/9075641/228462490-a2ec423a-44e3-40f5-9c0a-7e9d207f2822.png
+
+      //====================================
+     
+      let button = document.querySelector("#myButton");
+
+      // Функція для виведення повідомлення "I was pressed!"
+      function displayPressedMessage() {
+        alert("I was pressed!");
+      }
+
+      // Функція для виведення повідомлення "Mouse on me!"
+      function displayMouseOnMessage() {
+        alert("Mouse on me!");
+      }
+
+      // Функція для виведення повідомлення "Mouse is not on me!"
+      function displayMouseOffMessage() {
+        alert("Mouse is not on me!");
+      }
+
+      // Додаємо обробник події "click" на кнопку
+      button.addEventListener("click", displayPressedMessage);
+
+      // Додаємо обробник події "mouseenter" на кнопку
+      button.addEventListener("mouseenter", displayMouseOnMessage);
+
+      // Додаємо обробник події "mouseleave" на кнопку
+      button.addEventListener("mouseleave", displayMouseOffMessage);
+    </script>
+  </body>
+</html>
